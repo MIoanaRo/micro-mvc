@@ -1,15 +1,14 @@
 <?php
 
-class Book extends AbstractDb
+class Subscriber extends AbstractDb
 {
-
     public static function findAll()
     {
 
         $bdd = self::connectDb();
 
         // 2. request
-        $request = 'SELECT * FROM book';
+        $request = 'SELECT * FROM subscriber';
 
         // 3. execution de la request
         $response = $bdd->query($request);
@@ -20,9 +19,10 @@ class Book extends AbstractDb
 
     public static function findById(int $id)
     {
+
         $bdd = self::connectDb();
 
-        $request = 'SELECT * FROM book WHERE id = ' . $id;
+        $request = 'SELECT * FROM subscriber WHERE id = ' . $id;
 
         $response = $bdd->query($request);
 
@@ -33,38 +33,40 @@ class Book extends AbstractDb
     {
         $bdd = self::connectDb();
 
-        $request = $bdd->prepare('INSERT INTO book (title,author) VALUES (:title,:author)');
+        $request = $bdd->prepare('INSERT INTO subscriber (firstName,lastName) VALUES (:firstName,:lastName)');
         $request->execute(array(
-            'title' => $params['title'],
-            'author' => $params['author']
+            'firstName' => $params['firstName'],
+            'lastName' => $params['lastName']
         ));
 
-        echo 'Livre et author ajoute !';
+        echo 'Abonné ajoute !';
     }
 
     public static function update(int $id)
     {
+
         $bdd = self::connectDb();
 
-        $valeur = $_POST['id_title'];
-        $title = $_POST['title'];
+        $valeur = $_POST['id_subscriber'];
+        $firstName = $_POST['firstName'];
 
-        $req = $bdd->prepare('UPDATE book set title = \'' . $title . '\' where id = ' . $valeur);
+        $req = $bdd->prepare('UPDATE subscriber set firstName = \'' . $firstName . '\' where id = ' . $valeur);
         $req->execute();
 
-        echo "Le title $valeur a été mis à jour avec la valeur : <br> $title ";
+        echo "L'abonne nr $valeur a été mis à jour : <br> $firstName ";
     }
 
     public static function delete(int $id)
     {
+
         $bdd = self::connectDb();
 
-        foreach ($_POST['id_title'] as $valeur) {
+        foreach ($_POST['id_subscriber'] as $valeur) {
 
-            $req = $bdd->prepare('DELETE from book where id = ?');
+            $req = $bdd->prepare('DELETE from subscriber where id = ?');
             $req->execute(array($valeur));
 
-            echo "Le livre $valeur a été supprimée <br>";
+            echo "L'abonné  $valeur a été supprimée <br>";
         }
     }
 }

@@ -1,35 +1,35 @@
 <?php
 
-class BookController
+class SubscriberController
 {
 
     public static function list()
     {
 
         // 1. Appel du Model
-        $books = Book::findAll();
+        $subscribers = Subscriber::findAll();
 
         // 2. Return/include de la view
-        include(__DIR__ . '/../views/books/list.php');
+        include(__DIR__ . '/../views/subscribers/list_subscriber.php');
     }
 
     public static function read(int $id)    {
 
         // 1. Appel du Model
-        $book = Book::findById($id);
+        $subscriber = Subscriber::findById($id);
 
         // 2. Include de la lview
-        include(__DIR__ . '/../views/books/read.php');
+        include(__DIR__ . '/../views/subscribers/read_subscriber.php');
     }
 
     public static function new($params)
     {
-        Book::new($params);
+        Subscriber::new($params);
     }
 
     public static function create() {
         
-        include(__DIR__ . '/../views/books/new.php');
+        include(__DIR__ . '/../views/subscribers/new_subscriber.php');
     }
 
     public static function new_edit($id)
@@ -39,14 +39,14 @@ class BookController
 
     public static function edit()    {        
 
-        include(__DIR__ . '/../views/books/new_edit.php');
+        include(__DIR__ . '/../views/subscribers/new_edit.php');
     }    
 
     public static function delete($id)
     { 
         $book = Book::delete($id);      
 
-        include(__DIR__ . '/../views/books/delete.php');
+        include(__DIR__ . '/../views/subscribers/delete_subscriber.php');
 
     }
 }

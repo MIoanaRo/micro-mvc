@@ -1,11 +1,11 @@
 <?php
 
 abstract class AbstractDb {
-    const DB_NAME = 'hb_bibliotheque';
+    const DB_NAME = 'ioana_bibliotheque';
     const DB_HOST = '127.0.0.1';
-    const DB_PORT = '8889';
+    const DB_PORT = '3306';
     const DB_USER = 'root';
-    const DB_PSWD = 'root';
+    const DB_PSWD = '';
 
     protected static function connectDb() {
         try {

@@ -13,9 +13,9 @@
 
 <body>
 
-  <h1>Voici le livre : </h1>
+  <h1>L'affichage de subscriber : </h1>
 
-  <?php var_dump($book); ?>
+  <?php var_dump($subscriber); ?>
   
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
