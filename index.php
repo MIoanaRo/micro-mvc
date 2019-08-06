@@ -79,19 +79,19 @@ switch ($_GET['model']) {
          switch ($_GET['method']) {
 
             case 'list':
-                SubscriberController::list();
+                SubscriberBookController::list();
                 break;
         
             case 'read':
-                SubscriberController::read(intval($_GET['id']));
+                SubscriberBookController::read(intval($_GET['id']));
                 break;
         
             case 'new':
-                SubscriberController::new($_POST);
+                SubscriberBookController::new($_POST);
                 break;
         
             case 'create':
-                SubscriberController::create();
+                SubscriberBookController::create();
                 break;
                 # code...
                 break;    
